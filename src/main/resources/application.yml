@@ -1,0 +1,14 @@
+my.greeting: Hello
+app:
+  name: My App
+  description: ${app.name} description
+list.values: One, Two, Three
+db.values: "{connectionString: 'http://__', userName: 'foo', password: 'pass'}"
+
+# @ConfigurationProperties annotated Configuration class will look up props starting with 'db'
+db:
+  connection: "{connectionstring:'http://url__', userName:'foo', password:'pass'}"
+  host: 127.0.0.1
+  port: 1200
+
+management.endpoints.web.exposure.include: "*"
