@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GreetingController {
     @Value("${my.greeting}")
     private String message;
-    @Value("${app.description}")
+    @Value("${app.description: A default fallback description}")
     private String description;
     @GetMapping("/greeting")
     public ResponseEntity<String> greeting() {
