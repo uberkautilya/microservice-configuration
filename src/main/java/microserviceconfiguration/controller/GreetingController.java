@@ -1,5 +1,7 @@
 package microserviceconfiguration.controller;
 
+import microserviceconfiguration.configuration.DBSettings;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,10 +24,14 @@ public class GreetingController {
     @Value("#{${db.values}}")
     private Map<String, String> dbValues;
 
+    @Autowired
+    private DBSettings dbSettings;
+
     @GetMapping("/greeting")
     public ResponseEntity<String> greeting() {
         return ResponseEntity.ok(description +
-                "| " + listValues +
-                "| " + dbValues);
+                "\n| " + listValues +
+                "\n| " + dbValues +
+                "\n| " + dbSettings.getPort());
     }
 }
