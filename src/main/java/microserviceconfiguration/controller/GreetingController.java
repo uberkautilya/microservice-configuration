@@ -14,6 +14,8 @@ import java.util.Map;
 
 @RestController
 public class GreetingController {
+    @Autowired
+    Environment environment;
     @Value("${my.greeting}")
     private String message;
     @Value("${app.description: A default fallback description}")
@@ -29,12 +31,10 @@ public class GreetingController {
     @Autowired
     private DBSettings dbSettings;
 
-    @Autowired
-    Environment environment;
-
     @GetMapping("/greeting")
     public ResponseEntity<String> greeting() {
-        return ResponseEntity.ok(description +
+        return ResponseEntity.ok(message +
+                "\n| " + description +
                 "\n| " + listValues +
                 "\n| " + dbValues +
                 "\n| " + dbSettings.getPort());

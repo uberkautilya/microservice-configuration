@@ -1,4 +1,8 @@
-spring.profiles.active: test
+spring:
+  profiles:
+    active: test
+  config:
+    import: optional:configserver:http://localhost:8888
 
 my.greeting: Hello
 app:
