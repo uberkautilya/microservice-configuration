@@ -21,7 +21,7 @@ public class GreetingController {
     private List<String> listValues;
 
     /*SPeL: Spring Expression Language*/
-    @Value("#{${db.values}}")
+    @Value("#{${db_map.values}}")
     private Map<String, String> dbValues;
 
     @Autowired
