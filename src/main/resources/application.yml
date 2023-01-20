@@ -3,6 +3,8 @@ spring:
     active: test
   config:
     import: optional:configserver:http://localhost:8888
+  application:
+    name: microservice-configuration
 
 my.greeting: Hello
 app:
